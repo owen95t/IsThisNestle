@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+{#  <link rel="stylesheet" href="./nestle/styles.css">#}
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Is this Nestle?</a>
+        <form class="form-inline">
+            <input id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+{#            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+        </form>
+    </nav>
+    {# LIST BEGINS #}
+{#    <div class="listResults d-flex justify-content-center">#}
+{#        {% if search_term %}#}
+{#            {% if search_result %}#}
+{#                <ul class="list-group justify-content-center ">#}
+{#                    {% for item in search_result %}#}
+{#                    <li class="list-group-item list-group-item-action">#}
+{#                        {{ item.BRAND_NAME}}#}
+{#                    </li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#            {% else %}#}
+{#                <p>Query returned no results</p>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
+{#    </div>#}
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Parent Brand</th>
+                    <th scope="col">Is Subsidiary?</th>
+                    <th scope="col">Is Shareholder?</th>
+                    <th scope="col">Is Sub-Brand?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if allInDB %}
+                    {% for item in allInDB %}
+                        <tr>
+                            <th scope="row">{{ item.pk }}</th>
+                            <td>{{ item.BRAND_NAME }}</td>
+                            <td>{{ item.PARENT_BRAND }}</td>
+                            <td>{{ item.SUBSIDIARY }}</td>
+                            <td>{{ item.SHAREHOLDER }}</td>
+                            <td>{{ item.SUB_BRAND }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+            <tbody>
+            {% if search_term %}
+                {% if search_result %}
+                    {% for item in search_result %}
+                        <tr>
+                            <th scope="row">{{ item.pk }}</th>
+                            <td>{{ item.BRAND_NAME }}</td>
+                            <td>{{ item.PARENT_BRAND }}</td>
+                            <td>{{ item.SUBSIDIARY }}</td>
+                            <td>{{ item.SHAREHOLDER }}</td>
+                            <td>{{ item.SUB_BRAND }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% else %}
+                        <p>QUERY RETURNED NO RESULTS</p>
+                {% endif %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <script src=""></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL PARENT</title>
+</head>
+<body>
+    <ul>
+        {% for p in allParent %} <!--THIS IS THE CONTEXT PASSED FROM THE VIEW CLASS "allParent" -->
+            <li>{{ p.PARENT_BRAND }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

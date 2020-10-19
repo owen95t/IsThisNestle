@@ -1,0 +1,23 @@
+{
+  "name": "IsThisNestle",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1",
+    "register-service-worker": "^1.7.1",
+    "vue": "^2.6.12",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-pwa": "^4.5.7",
+    "@vue/cli-plugin-vuex": "^4.5.7"
+  },
+  "keywords": [],
+  "license": "ISC"
+}
