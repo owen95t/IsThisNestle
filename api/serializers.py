@@ -11,6 +11,7 @@ class BrandSerializer(serializers.HyperlinkedModelSerializer):
     def to_representation(self, instance):
         rep = super(BrandSerializer, self).to_representation(instance)
         rep['PARENT_BRAND'] = instance.PARENT_BRAND.PARENT_BRAND
+        # accessing foreignkey field, you must specify which field
 
         if instance.SHAREHOLDER:
             rep['SHAREHOLDER'] = "Yes"
